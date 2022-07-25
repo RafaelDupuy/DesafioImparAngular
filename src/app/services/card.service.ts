@@ -16,12 +16,17 @@ export class CardService {
 
   getCards() {
     const query = new ODataQueryBuilder();
-    query.paging(1, 2);
+    query.paging(1, 10);
     const url = `${this.defaultUrl}${query.toString()}`;
     return this.http.get(url).pipe(
       map((data: any) => {
         return this.cardDto.convertODataResponseToCardList(data);
       })
     );
+  }
+
+  deleteCard(id: number){
+    const url = `${this.defaultUrl}/${id}`
+    return this.http.delete(url);
   }
 }

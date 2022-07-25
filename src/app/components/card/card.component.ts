@@ -9,10 +9,15 @@ import { Card } from 'src/app/models/card';
 export class CardComponent implements OnInit {
 
   @Input() card: Card;
+
+  @Input() deleteCardCallback: () => void;
   
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  handleCardDelete(){
+    this.deleteCardCallback();
+  }
 }

@@ -5,12 +5,11 @@ import { CardService } from 'src/app/services/card.service';
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.scss']
+  styleUrls: ['./card-list.component.scss'],
 })
 export class CardListComponent implements OnInit {
-
   cards: Card[] = [];
-  constructor(private service: CardService) { }
+  constructor(private service: CardService) {}
 
   ngOnInit(): void {
     this.loadCards();
@@ -22,4 +21,13 @@ export class CardListComponent implements OnInit {
     });
   }
 
+  deleteCard(id: number): void {
+    this.service.deleteCard(id).subscribe(() => {
+      this.loadCards();
+    });
+  }
+
+  deleteCardCallback(id: number): () => void {
+    return () => this.deleteCard(id);
+  }
 }
