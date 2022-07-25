@@ -1,18 +1,25 @@
-<mat-card class="example-card">
-  <img src="assets/icons/icone.svg" />
+<mat-card class="card">
+  <div class="card-image">
+    <div class="card-background">
+      <img src="assets/icons/icone.svg" />
+    </div>
+  </div>
+
   <mat-card-subtitle>{{ card.name }}</mat-card-subtitle>
   <mat-divider inset></mat-divider>
-  <mat-card-content>
-    {{card.status}}
-  </mat-card-content>
+  <div class="card-content">
+    <mat-card-content>
+      {{ card.status }}
+    </mat-card-content>
+  </div>
   <mat-card-footer>
-    <span>
-      <button (click)="handleCardDelete()">
-        <img src="assets/icons/Icon-trash.svg" />Excluir
-      </button>
-    </span>
-    <span>
-      <button><img src="assets/icons/Icon-edit.svg" />Editar</button>
-    </span>
+    <mat-card-actions align="start">
+      <div class="card-actions">
+        <button (click)="handleCardDelete()">
+          <img src="assets/icons/Icon-trash.svg" />Excluir
+        </button>
+        <button><img src="assets/icons/Icon-edit.svg" />Editar</button>
+      </div>
+    </mat-card-actions>
   </mat-card-footer>
 </mat-card>

@@ -1,7 +1,25 @@
-<div class="main-div">
-    <div class="" *ngFor="let card of cards">
-        <app-card
-        [card]="card"
-        [deleteCardCallback]="deleteCardCallback(card.id)"></app-card>    
-    </div>
+<div class="row">
+  <label>Resultado da Busca</label>
+  <button>teste</button>
 </div>
+<div class="card-div">
+  <div class="card-item" *ngFor="let card of cards">
+    <app-card
+      [card]="card"
+      [deleteCardCallback]="deleteCardCallback(card.id)"
+    ></app-card>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col align-self-start">
+        One of three columns
+      </div>
+      <div class="col align-self-center">
+        One of three columns
+      </div>
+      <div class="col align-self-end">
+        One of three columns
+      </div>
+    </div>
+  </div>

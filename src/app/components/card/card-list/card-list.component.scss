@@ -1,6 +1,13 @@
-.main-div{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+label {
+  color: #5f1478;
+  font-size: 32px;
+}
+.card-div {
+  margin-top:36px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.card-item{
+  margin-right: 37px;
+}
