@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Card } from 'src/app/models/card';
+import { SidenavService } from 'src/app/services/sidenav.service';
 
 @Component({
   selector: 'app-card',
@@ -14,7 +15,7 @@ export class CardComponent implements OnInit {
   @Output() editButtonClicked: EventEmitter<boolean> = new EventEmitter();
   toggleSideNav: boolean = false;
 
-  constructor() {}
+  constructor(private sideNavService: SidenavService) {}
 
   ngOnInit(): void {}
 
@@ -23,6 +24,6 @@ export class CardComponent implements OnInit {
   }
 
   handleSideNavToggle(): void {
-    this.editButtonClicked.emit(true);
+    this.sideNavService.toggle();
   }
 }

@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Card } from 'src/app/models/card';
 import { SearchBarService } from 'src/app/search-bar.service';
 import { CardService } from 'src/app/services/card.service';
+import { SidenavService } from 'src/app/services/sidenav.service';
 
 @Component({
   selector: 'app-card-list',
@@ -13,7 +14,8 @@ export class CardListComponent implements OnInit {
 
   constructor(
     private service: CardService,
-    private searchService: SearchBarService
+    private searchService: SearchBarService,
+    private sideNavService: SidenavService
   ) {}
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class CardListComponent implements OnInit {
     return () => this.deleteCard(id);
   }
 
-  teste() {
-    this.loadCards();
+  toggleSideNav():void {
+    this.sideNavService.toggle();
   }
 }

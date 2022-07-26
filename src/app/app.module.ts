@@ -15,7 +15,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CardComponent } from './components/card/card.component';
 import { CardListComponent } from './components/card/card-list/card-list.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
-import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
     CardComponent,
     CardListComponent,
     SearchBarComponent,
-    SideNavComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

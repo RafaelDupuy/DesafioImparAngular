@@ -1,6 +1,7 @@
+<app-search-bar (performedSearch)="loadCards()"></app-search-bar>
 <div class="div">
   <label>Resultado da Busca</label>
-  <button class="new-card-button" (click)="teste()">Novo Card</button>
+  <button class="new-card-button" (click)="toggleSideNav()">Novo Card</button>
 </div>
 <div class="card-div">
   <div class="card-item" *ngFor="let card of cards">

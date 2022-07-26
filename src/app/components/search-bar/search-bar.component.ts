@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { SearchBarService } from 'src/app/search-bar.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { SearchBarService } from 'src/app/search-bar.service';
   styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
+  @Output() performedSearch: EventEmitter<any> = new EventEmitter<any>();
 
   get searchFieldValue(): string {
     return this.service.searchValue;
@@ -18,4 +19,10 @@ export class SearchBarComponent implements OnInit {
   constructor(private service: SearchBarService) {}
 
   ngOnInit(): void {}
+
+  handleKeyUp(event: any): void {
+    if (event.key === 'Enter') {
+      this.performedSearch.emit();
+    }
+  }
 }

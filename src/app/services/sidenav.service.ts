@@ -1,9 +1,19 @@
 import { Injectable } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SidenavService {
+  nav: MatSidenav;
 
-  constructor() { }
+  constructor() {}
+
+  setSidenav(sideNav: MatSidenav): void {
+    this.nav = sideNav;
+  }
+
+  toggle(): void {
+    this.nav.toggle();
+  }
 }
