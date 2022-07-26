@@ -14,9 +14,15 @@ export class CardService {
 
   constructor(private http: HttpClient) {}
 
-  getCards() {
+  getCards(searchString: string) {
     const query = new ODataQueryBuilder();
     query.paging(1, 10);
+    if (searchString.trim().length > 0) {
+      query
+        .contains('name', searchString.trim())
+        .or()
+        .contains('status', searchString.trim());
+    }
     const url = `${this.defaultUrl}${query.toString()}`;
     return this.http.get(url).pipe(
       map((data: any) => {
@@ -25,8 +31,8 @@ export class CardService {
     );
   }
 
-  deleteCard(id: number){
-    const url = `${this.defaultUrl}/${id}`
+  deleteCard(id: number) {
+    const url = `${this.defaultUrl}/${id}`;
     return this.http.delete(url);
   }
 }

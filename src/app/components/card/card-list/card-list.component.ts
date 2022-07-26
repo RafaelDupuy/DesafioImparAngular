@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Card } from 'src/app/models/card';
+import { SearchBarService } from 'src/app/search-bar.service';
 import { CardService } from 'src/app/services/card.service';
 
 @Component({
@@ -9,14 +10,18 @@ import { CardService } from 'src/app/services/card.service';
 })
 export class CardListComponent implements OnInit {
   cards: Card[] = [];
-  constructor(private service: CardService) {}
+
+  constructor(
+    private service: CardService,
+    private searchService: SearchBarService
+  ) {}
 
   ngOnInit(): void {
     this.loadCards();
   }
 
   loadCards(): void {
-    this.service.getCards().subscribe((res) => {
+    this.service.getCards(this.searchService.searchValue).subscribe((res) => {
       this.cards = res;
     });
   }
@@ -29,5 +34,9 @@ export class CardListComponent implements OnInit {
 
   deleteCardCallback(id: number): () => void {
     return () => this.deleteCard(id);
+  }
+
+  teste() {
+    this.loadCards();
   }
 }

@@ -1,0 +1,18 @@
+.div {
+  background-image: url("../../../assets/images/fundo-busca@2x.png");
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  height: 261px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-bar {
+  width: 1046px;
+  height: 75px;
+  border-radius: 8px;
+  border: 0;
+  font-size: 24px;
+  text-align: left;
+}
