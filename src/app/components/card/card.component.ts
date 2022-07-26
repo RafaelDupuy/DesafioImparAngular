@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewContainerRef } from '@angular/core';
 import { Card } from 'src/app/models/card';
 import { SidenavService } from 'src/app/services/sidenav.service';
 
@@ -15,7 +16,8 @@ export class CardComponent implements OnInit {
   @Output() editButtonClicked: EventEmitter<boolean> = new EventEmitter();
   toggleSideNav: boolean = false;
 
-  constructor(private sideNavService: SidenavService) {}
+  constructor(private sideNavService: SidenavService,
+    private vcf: ViewContainerRef) {}
 
   ngOnInit(): void {}
 
@@ -25,5 +27,10 @@ export class CardComponent implements OnInit {
 
   handleSideNavToggle(): void {
     this.sideNavService.toggle();
+  }
+
+  openRightPanel(templateRef: TemplateRef<any>) {
+    const portal = new TemplatePortal(templateRef, this.vcf);
+    this.sideNavService.open(portal);
   }
 }

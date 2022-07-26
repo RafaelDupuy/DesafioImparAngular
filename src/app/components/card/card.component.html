@@ -19,7 +19,7 @@
         <button (click)="handleCardDelete()">
           <img src="assets/icons/Icon-trash.svg" />Excluir
         </button>
-        <button (click)="handleSideNavToggle()">
+        <button (click)="openRightPanel(tempRef)">
           <img src="assets/icons/Icon-edit.svg" />Editar
         </button>
       </div>
@@ -27,9 +27,6 @@
   </mat-card-footer>
 </mat-card>
 
-<ng-template #deleteConfirmation>
-  <mat-sidenav-container fullscreen fixedInViewport="true">
-    <mat-sidenav opened>SideNav</mat-sidenav>
-    <mat-sidenav-content>Main</mat-sidenav-content>
-  </mat-sidenav-container>
+<ng-template #tempRef>
+  <p>Teste</p>
 </ng-template>

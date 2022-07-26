@@ -11,7 +11,7 @@ export class LayoutComponent implements OnInit ,AfterViewInit {
 
   @ViewChild('sideNav') sideNav: MatSidenav;
 
-  constructor(private sideNavService: SidenavService) { }
+  constructor(public sideNavService: SidenavService) { }
 
   ngAfterViewInit(): void {
     this.sideNavService.setSidenav(this.sideNav);
