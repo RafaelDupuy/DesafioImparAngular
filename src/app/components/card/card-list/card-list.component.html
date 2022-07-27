@@ -1,18 +1,24 @@
 <app-search-bar (performedSearch)="searchCards()"></app-search-bar>
-<div class="div">
-  <label>Resultado da Busca</label>
-  <button class="new-card-button" (click)="toggleSideNav()">Novo Card</button>
-</div>
-<div class="card-div">
-  <div class="card-item" *ngFor="let card of cards">
-    <app-card
-      [card]="card"
-      [deleteCardCallback]="deleteCardCallback(card.id)"
-      (cardEdited)="updateCard($event)"
-    ></app-card>
+<div class="container">
+  <div class="div">
+    <label>Resultado da Busca</label>
+    <button class="new-card-button" (click)="toggleSideNav()">Novo Card</button>
+  </div>
+  <div class="card-div">
+    <div class="card-item" *ngFor="let card of cards">
+      <app-card
+        [card]="card"
+        [deleteCardCallback]="deleteCardCallback(card.id)"
+        (cardEdited)="updateCard($event)"
+      ></app-card>
+    </div>
   </div>
 </div>
-<mat-paginator #paging [length]="paginationConfig.totalItems"
-              [pageSize]="paginationConfig.itemsPerPage"
-              (page)="handlePageChange($event)">
+<mat-paginator
+  class="paging"
+  #paging
+  [length]="paginationConfig.totalItems"
+  [pageSize]="paginationConfig.itemsPerPage"
+  (page)="handlePageChange($event)"
+>
 </mat-paginator>

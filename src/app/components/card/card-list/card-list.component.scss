@@ -1,10 +1,16 @@
-label {
-  color: #5f1478;
-  font-size: 32px;
+.container {
+  margin-top: 40px;
 }
+
 .div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+label {
+  color: #5f1478;
+  font-size: 32px;
 }
 
 .card-div {
@@ -12,12 +18,10 @@ label {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 168px;
-  margin-right: 225px;
-  margin-top: 40px;
 }
+
 .card-item {
-  margin-right: 37px;
+  margin-right: 20px;
   margin-top: 36px;
   border: 1px solid #e4e4e4;
   box-shadow: 0px 3px 6px #e5e5e5;
@@ -30,6 +34,12 @@ label {
   color: #ffffff;
   background: #e76316;
   box-shadow: 0px 3px 6px #92207242;
+  border: none;
   border-radius: 8px;
+  margin-right: 35px;
+  font-family: 'Mulli, Bold';
 }
 
+.paging {
+  background-color: inherit;
+}

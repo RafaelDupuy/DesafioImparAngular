@@ -25,4 +25,8 @@ export class SearchBarComponent implements OnInit {
       this.performedSearch.emit();
     }
   }
+
+  handleClickSearchButton(){
+    this.performedSearch.emit();
+  }
 }

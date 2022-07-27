@@ -1,12 +1,21 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
+@font-face {
+  font-family: "Mulli, Regular";
+  src: url(./assets/fonts/Muli-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Mulli, Bold";
+  src: url(./assets/fonts/Muli-Bold.ttf) format("truetype");
+}
 
+* {
+  font-family: 'Mulli, Regular', sans-serif; 
+}
 html,
 body {
   height: 100%;
-}
-body {
   margin: 0;
-  font-family: 'Muli, Regular', sans-serif !important;
   overflow-y: hidden;
   background: #f6f4f6;
 }
+

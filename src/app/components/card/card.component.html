@@ -5,7 +5,7 @@
     </div>
   </div>
 
-  <mat-card-subtitle>{{ card.name }}</mat-card-subtitle>
+  <mat-card-subtitle class="card-name">{{ card.name }}</mat-card-subtitle>
   <mat-divider inset></mat-divider>
   <div class="card-content">
     <mat-card-content>
@@ -15,10 +15,10 @@
   <mat-card-footer>
     <mat-card-actions align="start">
       <div class="card-actions">
-        <button (click)="handleCardDelete()">
+        <button (click)="handleCardDelete()" class="delete-button">
           <img src="assets/icons/Icon-trash.svg" />Excluir
         </button>
-        <button (click)="openRightPanel(tempRef)">
+        <button (click)="openRightPanel(tempRef)" class="edit-button">
           <img src="assets/icons/Icon-edit.svg" />Editar
         </button>
       </div>
