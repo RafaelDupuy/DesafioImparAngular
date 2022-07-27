@@ -7,7 +7,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FormsModule } from '@angular/forms';
-import { Portal, PortalModule } from '@angular/cdk/portal';
+import { PortalModule } from '@angular/cdk/portal';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,8 +39,10 @@ import { LayoutComponent } from './components/layout/layout.component';
     MatProgressBarModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatPaginatorModule,
     FormsModule,
-    PortalModule
+    PortalModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

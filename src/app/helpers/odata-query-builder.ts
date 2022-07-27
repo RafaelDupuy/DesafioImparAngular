@@ -23,7 +23,7 @@ export class ODataQueryBuilder {
     }
   
     paging(currentPage: number, itemsPerPage: number): ODataQueryBuilder {
-      this._skip = (currentPage - 1) * itemsPerPage;
+      this._skip = currentPage * itemsPerPage;
       this._top = itemsPerPage;
       this._count = true;
       return this;

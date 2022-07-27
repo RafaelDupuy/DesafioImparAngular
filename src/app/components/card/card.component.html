@@ -1,8 +1,7 @@
-
 <mat-card class="card">
   <div class="card-image">
     <div class="card-background">
-      <img src="assets/icons/icone.svg" />
+      <img [src]="card.imageUrl" class="circular-image" />
     </div>
   </div>
 
@@ -28,5 +27,42 @@
 </mat-card>
 
 <ng-template #tempRef>
-  <p>Teste</p>
+  <div class="title-row">
+    <img src="assets/icons/icone_criar.svg" width="46px" height="46px" /><label
+      >Editar card</label
+    >
+  </div>
+  <hr />
+  <div class="form-row">
+    <form >
+      <label for="inputCardName">
+        DIGITE UM NOME PARA O CARD
+      </label>
+      <input
+        type="text"
+        placeholder="Digite o título"
+        name="inputCardName"
+        [(ngModel)]="card.name"
+      />
+      <label for="inputCardName">
+        INCLUA UMA IMAGE PARA APARECER NO CARD
+      </label>
+      <input
+        type="text"
+        placeholder="Digite o status"
+        name="inptuCardStatus"
+        [(ngModel)]="card.status"
+      />
+      <input
+        type="file"
+        placeholder="Digite o status"
+        name="inptuCardStatus"
+        [(ngModel)]="card.image"
+      />
+    </form>
+    <hr>
+    <div class="button-row">
+      <button (click)="handleEditCard()">Editar Card</button>
+    </div>
+  </div>
 </ng-template>

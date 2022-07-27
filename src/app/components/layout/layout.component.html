@@ -1,10 +1,11 @@
 <app-nav-bar></app-nav-bar>
-<mat-sidenav-container>
-  <mat-sidenav #sideNav class="example-container" position="end">
-    <ng-template [cdkPortalOutlet]="sideNavService.panelPortal | async"></ng-template>
+<mat-sidenav-container class="nav-container">
+  <mat-sidenav #sideNav class="side-nav"  position="end">
+    <ng-template
+      [cdkPortalOutlet]="sideNavService.panelPortal | async"
+    ></ng-template>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="content">
-      <app-card-list></app-card-list></div
-  ></mat-sidenav-content>
+    <app-card-list></app-card-list>
+  </mat-sidenav-content>
 </mat-sidenav-container>

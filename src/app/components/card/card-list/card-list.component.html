@@ -1,4 +1,4 @@
-<app-search-bar (performedSearch)="loadCards()"></app-search-bar>
+<app-search-bar (performedSearch)="searchCards()"></app-search-bar>
 <div class="div">
   <label>Resultado da Busca</label>
   <button class="new-card-button" (click)="toggleSideNav()">Novo Card</button>
@@ -8,6 +8,11 @@
     <app-card
       [card]="card"
       [deleteCardCallback]="deleteCardCallback(card.id)"
+      (cardEdited)="updateCard($event)"
     ></app-card>
   </div>
 </div>
+<mat-paginator #paging [length]="paginationConfig.totalItems"
+              [pageSize]="paginationConfig.itemsPerPage"
+              (page)="handlePageChange($event)">
+</mat-paginator>
