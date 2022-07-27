@@ -1,0 +1,56 @@
+.content {
+  margin-left: 32px;
+  margin-right: 20px;
+  margin-top: 41px;
+}
+.title-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.form-label {
+  font-family: "Muli, Bold";
+  color: #454545;
+  margin-top: 10px;
+}
+
+input[type="text"] {
+  border: 1px solid #b9b9b9;
+  border-radius: 8px;
+  opacity: 1;
+  width: 100%;
+  height: 60px;
+  font-size: 18px;
+}
+
+input[type="file"]::file-selector-button {
+  width: 224px;
+  height: 48px;
+  background-color: #ffffff;
+  border-color: #e76316;
+  box-shadow: 0px 3px 6px #e763162e;
+  border: 1px solid #e76316;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.create-new-card {
+  width: 173px;
+  height: 48px;
+  color: #ffffff;
+  background: #e76316;
+  box-shadow: 0px 3px 6px #92207242;
+  border: none;
+  border-radius: 8px;
+  margin-right: 35px;
+}
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+}
+.title-label {
+  margin-left: 18px;
+  font-size: 32px;
+  font-family: "Muli, Bold";
+  color: #5f1478;
+}

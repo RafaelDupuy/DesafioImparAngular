@@ -1,4 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { TemplatePortal } from '@angular/cdk/portal';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { Card } from 'src/app/models/card';
 import { PaginationConfig } from 'src/app/models/pagination-config';
@@ -12,8 +19,8 @@ import { SidenavService } from 'src/app/services/sidenav.service';
   styleUrls: ['./card-list.component.scss'],
 })
 export class CardListComponent implements OnInit {
-
   @ViewChild('paging') matPaging: MatPaginator;
+
   cards: Card[] = [];
 
   paginationConfig: PaginationConfig = new PaginationConfig();
@@ -21,7 +28,8 @@ export class CardListComponent implements OnInit {
   constructor(
     private service: CardService,
     private searchService: SearchBarService,
-    private sideNavService: SidenavService
+    private sideNavService: SidenavService,
+    private vcf: ViewContainerRef
   ) {}
 
   ngOnInit(): void {
@@ -31,18 +39,20 @@ export class CardListComponent implements OnInit {
   }
 
   loadCards(): void {
-    this.service.getCards(this.searchService.searchValue,this.paginationConfig).subscribe((res) => {
-      this.paginationConfig.totalItems = res.total;
-      this.cards = res.items!;
-    });
+    this.service
+      .getCards(this.searchService.searchValue, this.paginationConfig)
+      .subscribe((res) => {
+        this.paginationConfig.totalItems = res.total;
+        this.cards = res.items!;
+      });
   }
 
-  handlePageChange($event: any){
-    this.paginationConfig.currentPage =  $event.pageIndex;
+  handlePageChange($event: any) {
+    this.paginationConfig.currentPage = $event.pageIndex;
     this.loadCards();
   }
 
-  searchCards():void {
+  searchCards(): void {
     this.matPaging.firstPage();
     this.paginationConfig.currentPage = 0;
     this.loadCards();
@@ -51,7 +61,7 @@ export class CardListComponent implements OnInit {
   updateCard(card: Card): void {
     this.service.updateCard(card).subscribe(() => {
       this.loadCards();
-    })
+    });
   }
 
   deleteCard(id: number): void {
@@ -64,7 +74,8 @@ export class CardListComponent implements OnInit {
     return () => this.deleteCard(id);
   }
 
-  toggleSideNav():void {
-    this.sideNavService.toggle();
+  openRightPanel(templateRef: TemplateRef<any>): void {
+    const portal = new TemplatePortal(templateRef, this.vcf);
+    this.sideNavService.open(portal);
   }
 }

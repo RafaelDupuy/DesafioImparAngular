@@ -19,6 +19,7 @@ import { CardComponent } from './components/card/card.component';
 import { CardListComponent } from './components/card/card-list/card-list.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { CardFormComponent } from './components/card-form/card-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LayoutComponent } from './components/layout/layout.component';
     CardComponent,
     CardListComponent,
     SearchBarComponent,
-    LayoutComponent
+    LayoutComponent,
+    CardFormComponent
   ],
   imports: [
     BrowserModule,

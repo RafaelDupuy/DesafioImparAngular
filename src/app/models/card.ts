@@ -4,5 +4,5 @@ export class Card {
     status: string;
     photoId: number;
     imageUrl?: any
-    image: Blob
+    file: File;
 }

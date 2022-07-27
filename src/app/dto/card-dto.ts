@@ -28,4 +28,12 @@ export class CardDto {
     card.photoId = data.photoId;
     return card;
   }
+
+  convertCardToJson(card: Card): object {
+    return {
+      name: card.name,
+      status: card.status,
+      photoId: card.photoId,
+    };
+  }
 }

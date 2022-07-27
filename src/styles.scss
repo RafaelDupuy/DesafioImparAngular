@@ -1,15 +1,15 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @font-face {
-  font-family: "Mulli, Regular";
+  font-family: "Muli, Regular";
   src: url(./assets/fonts/Muli-Regular.ttf) format("truetype");
 }
 @font-face {
-  font-family: "Mulli, Bold";
+  font-family: "Muli, Bold";
   src: url(./assets/fonts/Muli-Bold.ttf) format("truetype");
 }
 
 * {
-  font-family: 'Mulli, Regular', sans-serif; 
+  font-family: 'Muli, Regular', sans-serif; 
 }
 html,
 body {
@@ -17,5 +17,9 @@ body {
   margin: 0;
   overflow-y: hidden;
   background: #f6f4f6;
+}
+.mat-drawer-backdrop.mat-drawer-shown {
+  background: #F6F4F6CC;
+  opacity: 1;
 }
 

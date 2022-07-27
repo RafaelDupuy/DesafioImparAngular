@@ -2,7 +2,7 @@
 <div class="container">
   <div class="div">
     <label>Resultado da Busca</label>
-    <button class="new-card-button" (click)="toggleSideNav()">Novo Card</button>
+    <button class="new-card-button" (click)="openRightPanel(tempRef)">Novo Card</button>
   </div>
   <div class="card-div">
     <div class="card-item" *ngFor="let card of cards">
@@ -22,3 +22,7 @@
   (page)="handlePageChange($event)"
 >
 </mat-paginator>
+
+<ng-template #tempRef>
+  <app-card-form></app-card-form>
+</ng-template>

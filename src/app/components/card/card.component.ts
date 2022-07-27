@@ -38,7 +38,7 @@ export class CardComponent implements OnInit {
     this.getCardPhoto();
   }
 
-  getCardPhoto(){
+  getCardPhoto() {
     this.photoService.getPhotoById(this.card.photoId).subscribe((res) => {
       const reader = new FileReader();
       if (res.body !== null) {
@@ -58,13 +58,8 @@ export class CardComponent implements OnInit {
     this.sideNavService.toggle();
   }
 
-  openRightPanel(templateRef: TemplateRef<any>) {
+  openRightPanel(templateRef: TemplateRef<any>): void {
     const portal = new TemplatePortal(templateRef, this.vcf);
     this.sideNavService.open(portal);
   }
-
-  handleEditCard(): void {
-    this.cardEdited.emit(this.card);
-  }
-
 }

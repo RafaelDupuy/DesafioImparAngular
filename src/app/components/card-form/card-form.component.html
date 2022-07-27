@@ -1,0 +1,56 @@
+<div class="content">
+  <div class="title-row">
+    <img src="assets/icons/icone_criar.svg" width="46px" height="46px" />
+    <label *ngIf="!isEdit" class="title-label">Criar card</label>
+    <label *ngIf="isEdit" class="title-label">Editar card</label>
+  </div>
+  <hr class="dividers" />
+  <div class="form-row">
+    <label for="inputCardName" class="form-label">
+      DIGITE UM NOME PARA O CARD<span>*</span>
+    </label>
+    <input
+      type="text"
+      placeholder="Digite o título"
+      name="inputCardName"
+      [(ngModel)]="card.name"
+    />
+    <label for="inputCardStatus" class="form-label">
+      DIGITE UM STATUS PARA O CARD<span>*</span>
+    </label>
+    <input
+      type="text"
+      placeholder="Digite o status"
+      name="inptuCardStatus"
+      [(ngModel)]="card.status"
+    />
+    <label for="inputCardFile" class="form-label">
+      INCLUA UMA IMAGEM PARA APARECER NO CARD<span *ngIf="!isEdit">*</span>
+    </label>
+    <input
+      type="file"
+      name="inputCardFile"
+      class="upload-button"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+    />
+    <hr class="dividers" />
+    <div class="button-row">
+      <button
+        (click)="handleCardCreate()"
+        *ngIf="!isEdit"
+        class="create-new-card"
+      >
+        Criar Card
+      </button>
+
+      <button
+        (click)="handleCardUpdate()"
+        *ngIf="isEdit"
+        class="create-new-card"
+      >
+        Editar Card
+      </button>
+    </div>
+  </div>
+</div>

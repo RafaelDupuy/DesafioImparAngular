@@ -28,14 +28,26 @@ export class CardService {
 
   updateCard(card: Card) {
     const url = `${this.defaultUrl}/${card.id}`;
-    const cardJson = JSON.stringify(card);
-    console.log(cardJson);
-    return this.http.post(url, cardJson);
+    const cardJson = this.cardDto.convertCardToJson(card);
+    return this.http.put(url, cardJson);
   }
 
   deleteCard(id: number) {
     const url = `${this.defaultUrl}/${id}`;
     return this.http.delete(url);
+  }
+
+  createCard(card: Card) {
+    const cardJson = this.cardDto.convertCardToJson(card);
+    return this.http.post(this.defaultUrl, cardJson);
+  }
+
+  validateCardCreation(card: Card) {
+    return card.file !== undefined && this.validateCardUpdate(card);
+  }
+
+  validateCardUpdate(card: Card) {
+    return card.name?.length > 0 && card.status?.length > 0;
   }
 
   private getSearchString(
@@ -44,7 +56,7 @@ export class CardService {
   ): string {
     const query = new ODataQueryBuilder()
       .paging(paginationConfig.currentPage!, paginationConfig.itemsPerPage!)
-      .orderBy('Id', 'asc');
+      .orderBy('Id', 'desc');
     if (searchString.trim().length > 0) {
       query
         .contains('name', searchString.trim())
