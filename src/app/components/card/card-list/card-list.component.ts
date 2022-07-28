@@ -9,7 +9,7 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { Card } from 'src/app/models/card';
 import { PaginationConfig } from 'src/app/models/pagination-config';
-import { SearchBarService } from 'src/app/search-bar.service';
+import { SearchBarService } from 'src/app/services/search-bar.service';
 import { CardService } from 'src/app/services/card.service';
 import { SidenavService } from 'src/app/services/sidenav.service';
 
