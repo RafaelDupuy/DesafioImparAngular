@@ -1,27 +1,10 @@
-# DesafioImpar
+# DesafioImpar Frontend
+## Descrição do projeto:
+Essa é uma aplicação feita para a avaliação FullStack da Ímpar/I9. Feita em Javascrip/Angular 14
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Rodando a aplicação:
+- Certifique-se que o [Node JS](https://nodejs.org/en/download/) está instalado em seu computador.
+- Com o Node.Js instalado, abra um terminal e digite o seguinte comando para instalar o CLI do Angular `npm install -g @angular/cli`
+- Clone este repositório usando o `git clone`
+- Acesse a pasta clonada e digite `npm install` para instalar todas as dependencias necessárias
+- Execute o comando `ng s` para rodar a aplicação em `http://localhost:4200/`
