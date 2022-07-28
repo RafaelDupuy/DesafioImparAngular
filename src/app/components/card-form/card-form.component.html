@@ -40,6 +40,8 @@
         (click)="handleCardCreate()"
         *ngIf="!isEdit"
         class="create-new-card"
+        [ngClass]="canSaveCard ? 'enabled-button' : 'disabled-button'"
+        [disabled]="!canSaveCard"
       >
         Criar Card
       </button>
@@ -48,6 +50,8 @@
         (click)="handleCardUpdate()"
         *ngIf="isEdit"
         class="create-new-card"
+        [ngClass]="canEditCard ? 'enabled-button' : 'disabled-button'"
+        [disabled]="!canEditCard"
       >
         Editar Card
       </button>

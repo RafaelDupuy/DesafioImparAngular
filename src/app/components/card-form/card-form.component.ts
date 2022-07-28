@@ -13,6 +13,14 @@ export class CardFormComponent implements OnInit {
 
   @Input() isEdit = false;
 
+  get canSaveCard(): boolean {
+    return this.cardService.validateCardCreation(this.card);
+  }
+
+  get canEditCard(): boolean {
+    return this.cardService.validateCardUpdate(this.card);
+  }
+
   constructor(
     private photoService: PhotoService,
     private cardService: CardService
@@ -25,25 +33,22 @@ export class CardFormComponent implements OnInit {
   }
 
   handleCardCreate(): void {
-    if(!this.cardService.validateCardCreation(this.card)){
-      alert('Por favor, preencha todos os campos!');
-      return;
-    }
     this.uploadPhoto().then((res) => {
       this.card.photoId = res as number;
       this.cardService.createCard(this.card).subscribe(() => {
         location.reload();
       });
-    })
+    });
   }
+
   async handleCardUpdate(): Promise<void> {
-    if(this.card.file !== undefined){
-      this.card.photoId = await this.uploadPhoto() as number;
+    if (this.card.file !== undefined) {
+      this.card.photoId = (await this.uploadPhoto()) as number;
     }
     this.cardService.updateCard(this.card).subscribe(() => location.reload());
   }
 
-  async uploadPhoto(): Promise<Object | undefined>{
+  async uploadPhoto(): Promise<Object | undefined> {
     return this.photoService.uploadPhoto(this.card.file).toPromise();
   }
 }

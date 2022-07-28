@@ -47,7 +47,12 @@ export class CardService {
   }
 
   validateCardUpdate(card: Card) {
-    return card.name?.length > 0 && card.status?.length > 0;
+    return (
+      card.name?.length > 0 &&
+      card.name?.length <= 100 &&
+      card.status?.length > 0 &&
+      card.status?.length <= 100
+    );
   }
 
   private getSearchString(
